@@ -1,0 +1,12 @@
+transformers>=4.5.1
+tokenizers>=0.10.2
+git+https://github.com/huggingface/datasets.git@streaming
+torch_optimizer>=0.1.0
+wandb>=0.10.26
+sentencepiece
+whatsmyip
+bnlp_toolkit
+bltk
+aiohttp
+requests>=2.24.0
+seqeval

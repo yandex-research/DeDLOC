@@ -1,0 +1,4 @@
+# @package _global_
+config:
+  name: classification_task
+  num_epochs: 2

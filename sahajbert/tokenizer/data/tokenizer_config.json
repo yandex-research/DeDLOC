@@ -1,0 +1,19 @@
+{
+    "bos_token": "[CLS]",
+    "eos_token": "[SEP]",
+    "unk_token": "<unk>",
+    "sep_token": "[SEP]",
+    "cls_token": "[CLS]",
+    "pad_token": "<pad>",
+    "mask_token": {
+        "content": "[MASK]",
+        "single_word": false,
+        "lstrip": true,
+        "rstrip": false,
+        "normalized": false,
+        "__type": "AddedToken"
+    },
+    "model_max_length": 512,
+    "special_tokens_map_file": null,
+    "name_or_path": "sahajBERT-tokenizer"
+}

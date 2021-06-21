@@ -1,0 +1,5 @@
+# @package _global_
+config:
+  meters:
+    accuracy:
+      topk: [1, 5]

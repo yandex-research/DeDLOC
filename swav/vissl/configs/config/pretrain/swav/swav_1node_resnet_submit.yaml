@@ -1,0 +1,140 @@
+# @package _global_
+config:
+  VERBOSE: False
+  LOG_FREQUENCY: 10
+  TEST_ONLY: False
+  TEST_MODEL: False
+  SEED_VALUE: 0
+  MULTI_PROCESSING_METHOD: fork
+  HOOKS:
+    LOG_GPU_STATS: True
+    MEMORY_SUMMARY:
+      PRINT_MEMORY_SUMMARY: True
+      LOG_ITERATION_NUM: 0
+    PERF_STATS:
+      MONITOR_PERF_STATS: True
+      ROLLING_BTIME_FREQ: 313
+    TENSORBOARD_SETUP:
+      USE_TENSORBOARD: True
+      LOG_DIR: "."
+      EXPERIMENT_LOG_DIR: "tensorboard"
+      FLUSH_EVERY_N_MIN: 5
+      LOG_PARAMS: True
+      LOG_PARAMS_GRADIENTS: True
+      LOG_PARAMS_EVERY_N_ITERS: 310
+  DATA:
+    NUM_DATALOADER_WORKERS: 8
+    TRAIN:
+      DATA_SOURCES: [disk_folder]
+      DATASET_NAMES: [imagenet1k_folder]
+      BATCHSIZE_PER_REPLICA: 200
+      LABEL_TYPE: sample_index    # just an implementation detail. Label isn't used
+      TRANSFORMS:
+        - name: ImgPilToMultiCrop
+          total_num_crops: 8
+          size_crops: [224, 96]
+          num_crops: [2, 6]
+          crop_scales: [[0.14, 1], [0.05, 0.14]]
+        - name: RandomHorizontalFlip
+          p: 0.5
+        - name: ImgPilColorDistortion
+          strength: 1.0
+        - name: ImgPilGaussianBlur
+          p: 0.5
+          radius_min: 0.1
+          radius_max: 2.0
+        - name: ToTensor
+        - name: Normalize
+          mean: [0.485, 0.456, 0.406]
+          std: [0.229, 0.224, 0.225]
+      COLLATE_FUNCTION: multicrop_collator
+      MMAP_MODE: True
+      COPY_TO_LOCAL_DISK: False
+      COPY_DESTINATION_DIR: /tmp/imagenet1k/
+      DROP_LAST: True
+  TRAINER:
+    TRAIN_STEP_NAME: standard_train_step
+#    NUM_BATCHES_TO_ACCUMULATE: 8
+  METERS:
+    name: ""
+  MODEL:
+    TRUNK:
+      NAME: resnet
+      TRUNK_PARAMS:
+        RESNETS:
+          DEPTH: 50
+    HEAD:
+      PARAMS: [
+        ["swav_head", {"dims": [2048, 2048, 128], "use_bn": True, "num_clusters": [3000]}],
+      ]
+    TEMP_FROZEN_PARAMS_ITER_MAP: [
+      ['module.heads.0.prototypes0.weight', 5005],
+    ]
+    SYNC_BN_CONFIG:
+      CONVERT_BN_TO_SYNC_BN: False
+      SYNC_BN_TYPE: apex
+      GROUP_SIZE: 8
+    AMP_PARAMS:
+      USE_AMP: True
+      AMP_ARGS: {"opt_level": "O1"}
+    ACTIVATION_CHECKPOINTING:
+      USE_ACTIVATION_CHECKPOINTING: True
+      NUM_ACTIVATION_CHECKPOINTING_SPLITS: 8
+    SINGLE_PASS_EVERY_CROP: True
+  LOSS:
+    name: swav_loss
+    swav_loss:
+      temperature: 0.1
+      use_double_precision: False
+      normalize_last_layer: True
+      num_iters: 3
+      epsilon: 0.03
+      crops_for_assign: [0, 1]
+      queue:
+        queue_length: 3840
+        start_iter: 99838
+  OPTIMIZER:
+      name: sgd_collaborative
+      use_larc: True
+      dht_listen_on_port: "any"
+      averager_listen_on_port: "any"
+      larc_config:
+        clip: False
+        trust_coefficient: 0.001
+        eps: 0.00000001
+      weight_decay: 0.000001
+      momentum: 0.9
+      nesterov: False
+      # num_epochs: 100
+      # num_epochs: 200
+      num_epochs: 200
+      # num_epochs: 800
+      # num_epochs: 1
+      # num_epochs: 2
+      # num_epochs: 5
+      regularize_bn: True
+      regularize_bias: True
+      param_schedulers:
+        lr:
+          auto_lr_scaling:
+            auto_scale: false
+            base_value: 0.0
+            base_lr_batch_size: 0
+          name: constant
+          start_value: 0.0
+          end_value: 0.0
+          update_interval: step
+  DISTRIBUTED:
+    BACKEND: nccl
+    NUM_NODES: 1    # gives batch size of 20
+    NUM_PROC_PER_NODE: 1
+    RUN_ID: auto
+    INIT_METHOD: tcp
+    NCCL_DEBUG: True
+  MACHINE:
+    DEVICE: gpu
+  CHECKPOINT:
+    DIR: "."
+    AUTO_RESUME: True
+    CHECKPOINT_FREQUENCY: 5           # every phase since data is big
+    CHECKPOINT_ITER_FREQUENCY: 10000    # equals 1epoch of imagenet-1k
