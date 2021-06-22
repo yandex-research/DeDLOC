@@ -1,8 +1,6 @@
 # Distributed Deep Learning in Open Collaborations
 
-This repository contains the code for the paper
-
-**«Distributed Deep Learning in Open Collaborations»**
+This repository contains the code for the paper **«Distributed Deep Learning in Open Collaborations»**
 
 *Michael Diskin\*, Alexey Bukhtiyarov\*, Max Ryabinin\*, Lucile Saulnier, Quentin Lhoest, Anton Sinitsin, Dmitry Popov, Dmitry Pyrkin, Maxim Kashirin, Alexander Borzunov, Albert Villanova del Moral, Denis Mazur, Ilia Kobelev, Yacine Jernite, Thomas Wolf, Gennady Pekhimenko*
 
@@ -13,7 +11,6 @@ Link: [ArXiv](https://arxiv.org/abs/2106.10207)
 Before running the experiments, please set up the environment by following the steps below:
 
 - Prepare an environment with python __3.7-3.9__. [Anaconda](https://www.anaconda.com/products/individual) is recommended, but not required
-- Ensure that your machine has a recent version of Golang (1.15 or higher). To install Go, follow the [instructions](https://golang.org/doc/install) on the official website.
 - Install the [hivemind](https://github.com/learning-at-home/hivemind) library from master or by running `pip install hivemind==0.9.9`
 
 For all distributed experiments, the installation procedure must be repeated on every machine that participates in the
@@ -33,6 +30,12 @@ We recommend running [`albert`](./albert) experiments first: other experiments b
 reqire more careful setup (e.g. for public participation). Furthermore, for this experiment, we
 provide [a script](./albert/AWS_runner.ipynb) for launching experiments using preemptible GPUs in the cloud.
 
+## Acknowledgements:
+This project is the result of a collaboration between 
+[Yandex](https://research.yandex.com/), [Hugging Face](https://huggingface.co/), [MIPT](https://mipt.ru/english/), [HSE University](https://www.hse.ru/en/), [University of Toronto](https://www.utoronto.ca/), [Vector Institute](https://vectorinstitute.ai/) and [Neuropark](https://neuropark.co/).
+
+We also thank Stas Bekman, Dmitry Abulkhanov, Roman Zhytar, Alexander Ploshkin, Vsevolod Plokhotnyuk and Roman Kail for their invaluable help with building the training infrastructure. 
+Also, we thank Abhishek Thakur for helping with downstream evaluation and Tanmoy Sarkar with Omar Sanseviero, who helped us organize the collaborative experiment and gave regular status updates to the participants over the course of the training run.
 
 ## Citation:
 ```
