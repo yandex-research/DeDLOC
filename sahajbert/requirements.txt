@@ -10,4 +10,4 @@ bltk
 aiohttp
 requests>=2.24.0
 seqeval
-hivemind>=0.9.9
+hivemind>=0.9.9.post1

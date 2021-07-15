@@ -14,7 +14,7 @@ Before running the experiments, please set up the environment by following the s
 
 - Prepare an environment with python __3.7-3.9__. [Anaconda](https://www.anaconda.com/products/individual) is
   recommended, but not required
-- Install the [hivemind](https://github.com/learning-at-home/hivemind) library from master or by
+- Install the [hivemind](https://github.com/learning-at-home/hivemind) library from the master branch or by
   running `pip install hivemind==0.9.9.post1`
 
 For all distributed experiments, the installation procedure must be repeated on every machine that participates in the
