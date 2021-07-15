@@ -1,6 +1,6 @@
 # Distributed Deep Learning in Open Collaborations
 
-This repository contains the code for the paper **«Distributed Deep Learning in Open Collaborations»**
+This repository contains the code for the paper **"Distributed Deep Learning in Open Collaborations"**
 
 *Michael Diskin\*, Alexey Bukhtiyarov\*, Max Ryabinin\*, Lucile Saulnier, Quentin Lhoest, Anton Sinitsin, Dmitry Popov,
 Dmitry Pyrkin, Maxim Kashirin, Alexander Borzunov, Albert Villanova del Moral, Denis Mazur, Ilia Kobelev, Yacine
