@@ -16,6 +16,8 @@ This repository contains a snapshot of the code used to conduct experiments in t
 
 Please use **[the up-to-date version](https://github.com/learning-at-home/hivemind)** of our library if you want to try out collaborative training and/or set up your own experiment. It contains many substantial improvements, including better documentation and fixed bugs.
 
+Feel free to ask any questions in [our Discord chat](https://discord.gg/uGugx9zYvN).
+
 ## Installation
 
 Before running the experiments, please set up the environment by following the steps below:
