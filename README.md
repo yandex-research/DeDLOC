@@ -1,12 +1,20 @@
 # Distributed Deep Learning in Open Collaborations
 
-This repository contains the code for the paper **"Distributed Deep Learning in Open Collaborations"**
+This repository contains the code for the NeurIPS 2021 paper
+
+**"Distributed Deep Learning in Open Collaborations"**
 
 *Michael Diskin\*, Alexey Bukhtiyarov\*, Max Ryabinin\*, Lucile Saulnier, Quentin Lhoest, Anton Sinitsin, Dmitry Popov,
 Dmitry Pyrkin, Maxim Kashirin, Alexander Borzunov, Albert Villanova del Moral, Denis Mazur, Ilia Kobelev, Yacine
 Jernite, Thomas Wolf, Gennady Pekhimenko*
 
 Link: [ArXiv](https://arxiv.org/abs/2106.10207)
+
+## Note
+
+This repository contains a snapshot of the code used to conduct experiments in the paper.
+
+Please use **[the up-to-date version](https://github.com/learning-at-home/hivemind)** of our library if you want to try out collaborative training and/or set up your own experiment. It contains many substantial improvements, including better documentation and fixed bugs.
 
 ## Installation
 
@@ -38,9 +46,9 @@ provide [a script](./albert/AWS_runner.ipynb) for launching experiments using pr
 ## Acknowledgements
 
 This project is the result of a collaboration between
-[Yandex](https://research.yandex.com/), [Hugging Face](https://huggingface.co/), [MIPT](https://mipt.ru/english/)
-, [HSE University](https://www.hse.ru/en/), [University of Toronto](https://www.utoronto.ca/)
-, [Vector Institute](https://vectorinstitute.ai/) and [Neuropark](https://neuropark.co/).
+[Yandex](https://research.yandex.com/), [Hugging Face](https://huggingface.co/), [MIPT](https://mipt.ru/english/),
+[HSE University](https://www.hse.ru/en/), [University of Toronto](https://www.utoronto.ca/),
+[Vector Institute](https://vectorinstitute.ai/), and [Neuropark](https://neuropark.co/).
 
 We also thank Stas Bekman, Dmitry Abulkhanov, Roman Zhytar, Alexander Ploshkin, Vsevolod Plokhotnyuk and Roman Kail for
 their invaluable help with building the training infrastructure. Also, we thank Abhishek Thakur for helping with
@@ -49,28 +57,13 @@ gave regular status updates to the participants over the course of the training 
 
 ## Citation
 
-```
-@misc{diskin2021distributed,
-      title={Distributed Deep Learning in Open Collaborations}, 
-      author={Michael Diskin and 
-              Alexey Bukhtiyarov and 
-              Max Ryabinin and 
-              Lucile Saulnier and 
-              Quentin Lhoest and 
-              Anton Sinitsin and 
-              Dmitry Popov and 
-              Dmitry Pyrkin and 
-              Maxim Kashirin and 
-              Alexander Borzunov and 
-              Albert Villanova del Moral and 
-              Denis Mazur and 
-              Ilia Kobelev and 
-              Yacine Jernite and 
-              Thomas Wolf and 
-              Gennady Pekhimenko},
-      year={2021},
-      eprint={2106.10207},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG}
+```bibtex
+@inproceedings{diskin2021distributed,
+    title = {Distributed Deep Learning In Open Collaborations},
+    author = {Michael Diskin and Alexey Bukhtiyarov and Max Ryabinin and Lucile Saulnier and Quentin Lhoest and Anton Sinitsin and Dmitry Popov and Dmitriy Pyrkin and Maxim Kashirin and Alexander Borzunov and Albert Villanova del Moral and Denis Mazur and Ilia Kobelev and Yacine Jernite and Thomas Wolf and Gennady Pekhimenko},
+    booktitle = {Advances in Neural Information Processing Systems},
+    editor = {A. Beygelzimer and Y. Dauphin and P. Liang and J. Wortman Vaughan},
+    year = {2021},
+    url = {https://openreview.net/forum?id=FYHktcK-7v}
 }
 ```
