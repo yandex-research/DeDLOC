@@ -16,8 +16,6 @@ This repository contains a snapshot of the code used to conduct experiments in t
 
 Please use **[the up-to-date version](https://github.com/learning-at-home/hivemind)** of our library if you want to try out collaborative training and/or set up your own experiment. It contains many substantial improvements, including better documentation and fixed bugs.
 
-Feel free to ask any questions in [our Discord chat](https://discord.gg/uGugx9zYvN).
-
 ## Installation
 
 Before running the experiments, please set up the environment by following the steps below:
@@ -56,6 +54,10 @@ We also thank Stas Bekman, Dmitry Abulkhanov, Roman Zhytar, Alexander Ploshkin, 
 their invaluable help with building the training infrastructure. Also, we thank Abhishek Thakur for helping with
 downstream evaluation and Tanmoy Sarkar with Omar Sanseviero, who helped us organize the collaborative experiment and
 gave regular status updates to the participants over the course of the training run.
+
+## Contacts
+
+Feel free to ask any questions in [our Discord chat](https://discord.gg/uGugx9zYvN) or [by email](mailto:mryabinin0@gmail.com).
 
 ## Citation
 
