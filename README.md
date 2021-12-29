@@ -1,4 +1,4 @@
-# Distributed Deep Learning in Open Collaborations (NeurIPS 2021)
+# Distributed Deep Learning in Open Collaborations
 
 This repository contains the code for the NeurIPS 2021 paper
 
