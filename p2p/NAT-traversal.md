@@ -1,5 +1,10 @@
 # Interaction between two peers with different NAT-powered networks
 
+## Note
+
+This tutorial is written for an outdated version of hivemind (`0.9.9.post1`, the latest version at the time of releasing the paper).
+Since then we have significantly improved NAT traversal support and made some API changes. Please consider reading the **[up-to-date tutorial](https://github.com/yandex-research/DeDLOC/blob/hivemind-1.0.0/p2p/NAT-traversal.md)** instead.
+
 ## Intro
 
 This brief tutorial covers how two peers from different LAN (with NAT) can connect with each other. Whole p2p network configured from scratch step by step.
@@ -9,7 +14,12 @@ Participants:
 * Private node `private-1` (NAT A)
 * Private node `private-2` (NAT B)
 
-First of all, you need to run installation using the same instructions as in swav or albert experiments. 
+First of all, you need to run installation using the same instructions as in swav or albert experiments. Make sure you use the correct version of hivemind:
+
+```bash
+pip install hivemind==0.9.9.post1
+```
+
 Run all code below using jupyter notebooks, `python -m asyncio`, `ipython` or copy-paste to .py file and run it (don't forget to initialize the asyncio loop and wait at the end, e.g. with asyncio.Event, to prevent premature termination of the program).
 
 ## Set up public nodes
